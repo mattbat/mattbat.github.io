@@ -21,7 +21,7 @@ author: Matt Batchelder
 
 navbar-links:
   About Me: "aboutme"
-  My Cookbook: "mattbat.com/cookbook"
+  My Cookbook: "cookbook"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
