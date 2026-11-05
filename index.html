@@ -15,7 +15,7 @@ permalink: /
   <meta property="og:title" content="Matt Batchelder">
   <meta property="og:description" content="next5 and the family cookbook.">
   <meta property="og:url" content="https://mattbat.com/">
-  <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-brisket.webp">
+  <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-home-light.webp">
   <link rel="canonical" href="https://mattbat.com/">
   <link rel="icon" href="/assets/img/avatar-icon.png">
   <style>
@@ -128,6 +128,25 @@ permalink: /
     }
     .next5 .visual img { height: auto; object-fit: initial; }
 
+    /* cookbook: two phone screenshots in the app's warm colors */
+    .cookbook .visual {
+      background: radial-gradient(120% 90% at 50% 0%, #e9c9a8 0%, #7a3a1c 75%);
+      display: flex;
+      justify-content: center;
+      gap: 5%;
+    }
+    .cookbook .visual picture {
+      display: block;
+      width: 36%;
+      margin-top: 9%;
+      align-self: flex-start;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 0 5px #2a2d34, 0 14px 30px rgba(0, 0, 0, .5);
+    }
+    .cookbook .visual picture:nth-child(2) { margin-top: 16%; }
+    .cookbook .visual img { height: auto; object-fit: initial; }
+
     .body {
       display: flex;
       flex-direction: column;
@@ -137,13 +156,7 @@ permalink: /
     }
     .title { display: flex; align-items: center; gap: 12px; }
     .title img { width: 40px; height: 40px; border-radius: 10px; }
-    .title .emoji {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: grid; place-items: center;
-      background: color-mix(in srgb, var(--cookbook) 16%, transparent);
-      font-size: 22px;
-    }
-    .title h2 { margin: 0; font-size: 1.4rem; letter-spacing: -0.01em; }
+        .title h2 { margin: 0; font-size: 1.4rem; letter-spacing: -0.01em; }
     .body p { margin: 0; color: var(--muted); }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; padding: 0; list-style: none; }
     .tags li {
@@ -211,11 +224,18 @@ permalink: /
 
       <a class="card cookbook" href="/cookbook/">
         <div class="visual">
-          <img src="/assets/img/projects/cookbook-brisket.webp" width="720" height="480" alt="Sliced smoked brisket on a tray with pickles and barbecue sauces">
+          <picture>
+            <source srcset="/assets/img/projects/cookbook-home-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/projects/cookbook-home-light.webp" width="1170" height="2532" alt="Cookbook home screen with search and featured recipes">
+          </picture>
+          <picture>
+            <source srcset="/assets/img/projects/cookbook-recipe-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/projects/cookbook-recipe-light.webp" width="1170" height="2532" alt="Brisket recipe page with servings and cook mode button">
+          </picture>
         </div>
         <div class="body">
           <div class="title">
-            <span class="emoji" aria-hidden="true">📖</span>
+            <img src="/assets/img/projects/cookbook-icon.png" width="40" height="40" alt="">
             <h2>Cookbook</h2>
           </div>
           <p>The Batchelder family cookbook: 50+ recipes, from Memaw's Roast to smoked brisket, with search, a kitchen mode and built-in timers.</p>
