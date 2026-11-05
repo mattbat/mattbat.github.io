@@ -1,5 +1,243 @@
 ---
-layout: home
-title: Matt Batchelder
-subtitle: This is where I will tell my friends way too much about me
+layout: null
+permalink: /
 ---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Matt Batchelder</title>
+  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches, and the Batchelder family cookbook.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Matt Batchelder">
+  <meta property="og:description" content="next5 and the family cookbook.">
+  <meta property="og:url" content="https://mattbat.com/">
+  <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-brisket.webp">
+  <link rel="canonical" href="https://mattbat.com/">
+  <link rel="icon" href="/assets/img/avatar-icon.png">
+  <style>
+    :root {
+      --bg: #f6f5f2;
+      --surface: #ffffff;
+      --text: #1d1f23;
+      --muted: #5f636b;
+      --line: #e3e1dc;
+      --shadow: 0 1px 2px rgba(20, 20, 30, .06), 0 8px 24px rgba(20, 20, 30, .08);
+      --shadow-hover: 0 2px 4px rgba(20, 20, 30, .08), 0 16px 40px rgba(20, 20, 30, .14);
+      --next5: #2f6fed;
+      --cookbook: #b4532c;
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121316;
+        --surface: #1b1d21;
+        --text: #eceef1;
+        --muted: #a2a7b0;
+        --line: #2c2f35;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+        --shadow-hover: 0 2px 4px rgba(0, 0, 0, .45), 0 16px 40px rgba(0, 0, 0, .5);
+        --next5: #6d9bff;
+        --cookbook: #e48a62;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; }
+
+    .wrap {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    header { padding-top: 64px; padding-bottom: 36px; }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 2.9rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 34em;
+    }
+
+    main { flex: 1; }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 24px;
+      padding-bottom: 56px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .card.next5 { --accent: var(--next5); }
+    .card.cookbook { --accent: var(--cookbook); }
+
+    .visual {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+    .visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* next5: phone screenshot rising out of a panel in the app's own colors */
+    .next5 .visual {
+      background: radial-gradient(120% 90% at 50% 0%, #1f3566 0%, #0b0f17 70%);
+      display: flex;
+      justify-content: center;
+    }
+    .next5 .visual picture {
+      display: block;
+      width: 46%;
+      margin-top: 8%;
+      align-self: flex-start;
+      border-radius: 22px 22px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 0 6px #2a2d34, 0 18px 40px rgba(0, 0, 0, .5);
+    }
+    .next5 .visual img { height: auto; object-fit: initial; }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 22px 22px 24px;
+      flex: 1;
+    }
+    .title { display: flex; align-items: center; gap: 12px; }
+    .title img { width: 40px; height: 40px; border-radius: 10px; }
+    .title .emoji {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: grid; place-items: center;
+      background: color-mix(in srgb, var(--cookbook) 16%, transparent);
+      font-size: 22px;
+    }
+    .title h2 { margin: 0; font-size: 1.4rem; letter-spacing: -0.01em; }
+    .body p { margin: 0; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; padding: 0; list-style: none; }
+    .tags li {
+      font-size: .8rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .cta {
+      margin-top: auto;
+      padding-top: 8px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .cta::after { content: "\2192"; display: inline-block; margin-left: .35em; transition: transform .18s ease; }
+    .card:hover .cta::after { transform: translateX(4px); }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 20px 0 max(20px, env(safe-area-inset-bottom));
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+    footer nav { display: flex; gap: 16px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--text); text-decoration: underline; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .cta::after { transition: none; }
+      .card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <h1>Matt Batchelder</h1>
+    <p>Things I've built for my family, my team, and anyone else who finds them useful.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="projects" aria-label="Projects">
+      <a class="card next5" href="/next5/">
+        <div class="visual">
+          <picture>
+            <source srcset="/assets/img/projects/next5-gameday-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/projects/next5-gameday-light.webp" width="804" height="1748" alt="next5 game-day screen showing who is on the court and the next substitution">
+          </picture>
+        </div>
+        <div class="body">
+          <div class="title">
+            <img src="/assets/img/projects/next5-icon.png" width="40" height="40" alt="">
+            <h2>next5</h2>
+          </div>
+          <p>Fair basketball rotations for youth coaches. Plan the rotation before the game, then run it with one tap per substitution.</p>
+          <ul class="tags">
+            <li>iPhone app</li>
+            <li>Works offline</li>
+            <li>Free</li>
+          </ul>
+          <span class="cta">Open next5</span>
+        </div>
+      </a>
+
+      <a class="card cookbook" href="/cookbook/">
+        <div class="visual">
+          <img src="/assets/img/projects/cookbook-brisket.webp" width="720" height="480" alt="Sliced smoked brisket on a tray with pickles and barbecue sauces">
+        </div>
+        <div class="body">
+          <div class="title">
+            <span class="emoji" aria-hidden="true">📖</span>
+            <h2>Cookbook</h2>
+          </div>
+          <p>The Batchelder family cookbook: 50+ recipes, from Memaw's Roast to smoked brisket, with search, a kitchen mode and built-in timers.</p>
+          <ul class="tags">
+            <li>Family recipes</li>
+            <li>Kitchen mode</li>
+            <li>Timers</li>
+          </ul>
+          <span class="cta">Open the cookbook</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; Matt Batchelder</span>
+      <nav aria-label="Elsewhere">
+        <a href="https://github.com/mattbat">GitHub</a>
+        <a href="https://www.linkedin.com/in/matthbatchelder">LinkedIn</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
