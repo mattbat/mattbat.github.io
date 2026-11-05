@@ -15,7 +15,7 @@ permalink: /
   <meta property="og:title" content="Matt Batchelder">
   <meta property="og:description" content="next5 and the family cookbook.">
   <meta property="og:url" content="https://mattbat.com/">
-  <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-home-light.webp">
+  <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-recipe-light.webp">
   <link rel="canonical" href="https://mattbat.com/">
   <link rel="icon" href="/assets/img/avatar-icon.png">
   <style>
@@ -128,23 +128,21 @@ permalink: /
     }
     .next5 .visual img { height: auto; object-fit: initial; }
 
-    /* cookbook: two phone screenshots in the app's warm colors */
+    /* cookbook: phone screenshot in the app's warm colors */
     .cookbook .visual {
       background: radial-gradient(120% 90% at 50% 0%, #e9c9a8 0%, #7a3a1c 75%);
       display: flex;
       justify-content: center;
-      gap: 5%;
     }
     .cookbook .visual picture {
       display: block;
-      width: 36%;
-      margin-top: 9%;
+      width: 46%;
+      margin-top: 8%;
       align-self: flex-start;
-      border-radius: 18px 18px 0 0;
+      border-radius: 22px 22px 0 0;
       overflow: hidden;
-      box-shadow: 0 0 0 5px #2a2d34, 0 14px 30px rgba(0, 0, 0, .5);
+      box-shadow: 0 0 0 6px #2a2d34, 0 18px 40px rgba(0, 0, 0, .5);
     }
-    .cookbook .visual picture:nth-child(2) { margin-top: 16%; }
     .cookbook .visual img { height: auto; object-fit: initial; }
 
     .body {
@@ -224,10 +222,6 @@ permalink: /
 
       <a class="card cookbook" href="/cookbook/">
         <div class="visual">
-          <picture>
-            <source srcset="/assets/img/projects/cookbook-home-dark.webp" media="(prefers-color-scheme: dark)">
-            <img src="/assets/img/projects/cookbook-home-light.webp" width="1170" height="2532" alt="Cookbook home screen with search and featured recipes">
-          </picture>
           <picture>
             <source srcset="/assets/img/projects/cookbook-recipe-dark.webp" media="(prefers-color-scheme: dark)">
             <img src="/assets/img/projects/cookbook-recipe-light.webp" width="1170" height="2532" alt="Brisket recipe page with servings and cook mode button">
