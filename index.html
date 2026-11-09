@@ -8,12 +8,12 @@ permalink: /
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Matt Batchelder</title>
-  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches, and the Batchelder family cookbook.">
+  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches; the Batchelder family cookbook; and LMNT Calculator, a homemade electrolyte mix calculator.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Matt Batchelder">
-  <meta property="og:description" content="next5 and the family cookbook.">
+  <meta property="og:description" content="next5, the family cookbook and LMNT Calculator.">
   <meta property="og:url" content="https://mattbat.com/">
   <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-recipe-light.webp">
   <link rel="canonical" href="https://mattbat.com/">
@@ -29,6 +29,7 @@ permalink: /
       --shadow-hover: 0 2px 4px rgba(20, 20, 30, .08), 0 16px 40px rgba(20, 20, 30, .14);
       --next5: #2f6fed;
       --cookbook: #b4532c;
+      --lmnt: #4f46e5;
       --radius: 18px;
     }
     @media (prefers-color-scheme: dark) {
@@ -42,6 +43,7 @@ permalink: /
         --shadow-hover: 0 2px 4px rgba(0, 0, 0, .45), 0 16px 40px rgba(0, 0, 0, .5);
         --next5: #6d9bff;
         --cookbook: #e48a62;
+        --lmnt: #8b93f8;
       }
     }
 
@@ -60,7 +62,7 @@ permalink: /
 
     .wrap {
       width: 100%;
-      max-width: 960px;
+      max-width: 1120px;
       margin: 0 auto;
       padding-left: max(16px, env(safe-area-inset-left));
       padding-right: max(16px, env(safe-area-inset-right));
@@ -83,9 +85,20 @@ permalink: /
     main { flex: 1; }
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      grid-template-columns: 1fr;
       gap: 24px;
       padding-bottom: 56px;
+    }
+    /* Two columns: the odd card out spans the row, laid out side by side */
+    @media (min-width: 680px) and (max-width: 1039px) {
+      .projects { grid-template-columns: repeat(2, 1fr); }
+      .card:last-child:nth-child(odd) { grid-column: 1 / -1; flex-direction: row; }
+      .card:last-child:nth-child(odd) .visual { flex: 0 0 50%; aspect-ratio: auto; min-height: 300px; max-height: 340px; }
+      .card:last-child:nth-child(odd) .body { justify-content: center; padding: 28px 32px; }
+    }
+    /* Three across on wide screens */
+    @media (min-width: 1040px) {
+      .projects { grid-template-columns: repeat(3, 1fr); }
     }
 
     .card {
@@ -103,6 +116,7 @@ permalink: /
     .card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     .card.next5 { --accent: var(--next5); }
     .card.cookbook { --accent: var(--cookbook); }
+    .card.lmnt { --accent: var(--lmnt); }
 
     .visual {
       position: relative;
@@ -111,13 +125,13 @@ permalink: /
     }
     .visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-    /* next5: phone screenshot rising out of a panel in the app's own colors */
-    .next5 .visual {
-      background: radial-gradient(120% 90% at 50% 0%, #1f3566 0%, #0b0f17 70%);
+    /* Phone screenshot rising out of a panel in each app's own colors */
+    .visual {
       display: flex;
       justify-content: center;
+      background: var(--panel);
     }
-    .next5 .visual picture {
+    .visual picture {
       display: block;
       width: 46%;
       margin-top: 8%;
@@ -126,24 +140,10 @@ permalink: /
       overflow: hidden;
       box-shadow: 0 0 0 6px #2a2d34, 0 18px 40px rgba(0, 0, 0, .5);
     }
-    .next5 .visual img { height: auto; object-fit: initial; }
-
-    /* cookbook: phone screenshot in the app's warm colors */
-    .cookbook .visual {
-      background: radial-gradient(120% 90% at 50% 0%, #e9c9a8 0%, #7a3a1c 75%);
-      display: flex;
-      justify-content: center;
-    }
-    .cookbook .visual picture {
-      display: block;
-      width: 46%;
-      margin-top: 8%;
-      align-self: flex-start;
-      border-radius: 22px 22px 0 0;
-      overflow: hidden;
-      box-shadow: 0 0 0 6px #2a2d34, 0 18px 40px rgba(0, 0, 0, .5);
-    }
-    .cookbook .visual img { height: auto; object-fit: initial; }
+    .visual img { height: auto; object-fit: initial; }
+    .next5 { --panel: radial-gradient(120% 90% at 50% 0%, #1f3566 0%, #0b0f17 70%); }
+    .cookbook { --panel: radial-gradient(120% 90% at 50% 0%, #e9c9a8 0%, #7a3a1c 75%); }
+    .lmnt { --panel: radial-gradient(120% 90% at 50% 0%, #4a47b8 0%, #12121f 72%); }
 
     .body {
       display: flex;
@@ -154,7 +154,7 @@ permalink: /
     }
     .title { display: flex; align-items: center; gap: 12px; }
     .title img { width: 40px; height: 40px; border-radius: 10px; }
-        .title h2 { margin: 0; font-size: 1.4rem; letter-spacing: -0.01em; }
+    .title h2 { margin: 0; font-size: 1.4rem; letter-spacing: -0.01em; }
     .body p { margin: 0; color: var(--muted); }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; padding: 0; list-style: none; }
     .tags li {
@@ -239,6 +239,28 @@ permalink: /
             <li>Timers</li>
           </ul>
           <span class="cta">Open the cookbook</span>
+        </div>
+      </a>
+
+      <a class="card lmnt" href="/lmnt-calculator/">
+        <div class="visual">
+          <picture>
+            <source srcset="/assets/img/projects/lmnt-recipe-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/projects/lmnt-recipe-light.webp" width="1170" height="2532" alt="Raw recipe page with batch size, the grams to weigh out and an electrolytes label">
+          </picture>
+        </div>
+        <div class="body">
+          <div class="title">
+            <img src="/assets/img/projects/lmnt-icon.png" width="40" height="40" alt="">
+            <h2>LMNT Calculator</h2>
+          </div>
+          <p>Mix your own electrolyte drink powder. Pick a recipe and batch size, get the exact grams to weigh, and see the cost per serving and what you save.</p>
+          <ul class="tags">
+            <li>Phone app</li>
+            <li>Works offline</li>
+            <li>Free</li>
+          </ul>
+          <span class="cta">Open the calculator</span>
         </div>
       </a>
     </section>
