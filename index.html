@@ -8,12 +8,12 @@ permalink: /
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Matt Batchelder</title>
-  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches; the Batchelder family cookbook; and LMNT Calculator, a homemade electrolyte mix calculator.">
+  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches; the Batchelder family cookbook; LMNT Calculator, a homemade electrolyte mix calculator; and Sausage Calculator, which scales a sausage recipe to the weight of your meat.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Matt Batchelder">
-  <meta property="og:description" content="next5, the family cookbook and LMNT Calculator.">
+  <meta property="og:description" content="next5, the family cookbook, LMNT Calculator and Sausage Calculator.">
   <meta property="og:url" content="https://mattbat.com/">
   <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-recipe-light.webp">
   <link rel="canonical" href="https://mattbat.com/">
@@ -30,6 +30,7 @@ permalink: /
       --next5: #2f6fed;
       --cookbook: #b4532c;
       --lmnt: #4f46e5;
+      --sausage: #8f2a18;
       --radius: 18px;
     }
     @media (prefers-color-scheme: dark) {
@@ -44,6 +45,7 @@ permalink: /
         --next5: #6d9bff;
         --cookbook: #e48a62;
         --lmnt: #8b93f8;
+        --sausage: #f08e74;
       }
     }
 
@@ -117,6 +119,7 @@ permalink: /
     .card.next5 { --accent: var(--next5); }
     .card.cookbook { --accent: var(--cookbook); }
     .card.lmnt { --accent: var(--lmnt); }
+    .card.sausage { --accent: var(--sausage); }
 
     .visual {
       position: relative;
@@ -144,6 +147,7 @@ permalink: /
     .next5 { --panel: radial-gradient(120% 90% at 50% 0%, #1f3566 0%, #0b0f17 70%); }
     .cookbook { --panel: radial-gradient(120% 90% at 50% 0%, #e9c9a8 0%, #7a3a1c 75%); }
     .lmnt { --panel: radial-gradient(120% 90% at 50% 0%, #4a47b8 0%, #12121f 72%); }
+    .sausage { --panel: radial-gradient(120% 90% at 50% 0%, #c0502f 0%, #1d1411 72%); }
 
     .body {
       display: flex;
@@ -255,6 +259,28 @@ permalink: /
             <h2>LMNT Calculator</h2>
           </div>
           <p>Mix your own electrolyte drink powder. Pick a recipe and batch size, get the exact grams to weigh, and see the cost per serving and what you save.</p>
+          <ul class="tags">
+            <li>Phone app</li>
+            <li>Works offline</li>
+            <li>Free</li>
+          </ul>
+          <span class="cta">Open the calculator</span>
+        </div>
+      </a>
+
+      <a class="card sausage" href="/sausage-calculator/">
+        <div class="visual">
+          <picture>
+            <source srcset="/assets/img/projects/sausage-calculator-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/projects/sausage-calculator-light.webp" width="1170" height="2532" alt="Calculator with 8066 g of meat and the grams of each ingredient to weigh, with salt and pink salt ticked off">
+          </picture>
+        </div>
+        <div class="body">
+          <div class="title">
+            <img src="/assets/img/projects/sausage-icon.png" width="40" height="40" alt="">
+            <h2>Sausage Calculator</h2>
+          </div>
+          <p>Weigh your meat, type it in grams or pounds, and get the exact grams of salt, cure, spices and water for the batch. Tick each one off as you go.</p>
           <ul class="tags">
             <li>Phone app</li>
             <li>Works offline</li>
