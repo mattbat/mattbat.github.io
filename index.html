@@ -8,12 +8,12 @@ permalink: /
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Matt Batchelder</title>
-  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches; the Batchelder family cookbook; LMNT Calculator, a homemade electrolyte mix calculator; and Sausage Calculator, which scales a sausage recipe to the weight of your meat.">
+  <meta name="description" content="Projects by Matt Batchelder: next5, a basketball rotation planner for youth coaches; the Batchelder family cookbook; LMNT Calculator, a homemade electrolyte mix calculator; and Sausage Calculator, which scales a sausage recipe to the weight of your meat; and Photo Planner, which plans every family photo before the shoot.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Matt Batchelder">
-  <meta property="og:description" content="next5, the family cookbook, LMNT Calculator and Sausage Calculator.">
+  <meta property="og:description" content="next5, the family cookbook, LMNT Calculator, Sausage Calculator and Photo Planner.">
   <meta property="og:url" content="https://mattbat.com/">
   <meta property="og:image" content="https://mattbat.com/assets/img/projects/cookbook-recipe-light.webp">
   <link rel="canonical" href="https://mattbat.com/">
@@ -31,6 +31,7 @@ permalink: /
       --cookbook: #b4532c;
       --lmnt: #4f46e5;
       --sausage: #8f2a18;
+      --photo: #a3560a;
       --radius: 18px;
     }
     @media (prefers-color-scheme: dark) {
@@ -46,6 +47,7 @@ permalink: /
         --cookbook: #e48a62;
         --lmnt: #8b93f8;
         --sausage: #f08e74;
+        --photo: #f0b458;
       }
     }
 
@@ -120,6 +122,7 @@ permalink: /
     .card.cookbook { --accent: var(--cookbook); }
     .card.lmnt { --accent: var(--lmnt); }
     .card.sausage { --accent: var(--sausage); }
+    .card.photo { --accent: var(--photo); }
 
     .visual {
       position: relative;
@@ -148,6 +151,7 @@ permalink: /
     .cookbook { --panel: radial-gradient(120% 90% at 50% 0%, #e9c9a8 0%, #7a3a1c 75%); }
     .lmnt { --panel: radial-gradient(120% 90% at 50% 0%, #4a47b8 0%, #12121f 72%); }
     .sausage { --panel: radial-gradient(120% 90% at 50% 0%, #c0502f 0%, #1d1411 72%); }
+    .photo { --panel: radial-gradient(120% 90% at 50% 0%, #e8a33d 0%, #1f1d1b 72%); }
 
     .body {
       display: flex;
@@ -287,6 +291,27 @@ permalink: /
             <li>Free</li>
           </ul>
           <span class="cta">Open the calculator</span>
+        </div>
+      </a>
+      <a class="card photo" href="/photo-planner/">
+        <div class="visual">
+          <picture>
+            <source srcset="/assets/img/projects/photo-planner-shoot-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/projects/photo-planner-shoot-light.webp" width="804" height="1748" alt="Shoot day screen showing the next shot, who to call in from each family, and a big Done button">
+          </picture>
+        </div>
+        <div class="body">
+          <div class="title">
+            <img src="/assets/img/projects/photo-planner-icon.png" width="40" height="40" alt="">
+            <h2>Photo Planner</h2>
+          </div>
+          <p>Plan every family photo before the shoot. Describe the family once and get the full shot list, then tick each one off on the day.</p>
+          <ul class="tags">
+            <li>iPhone app</li>
+            <li>Works offline</li>
+            <li>Free</li>
+          </ul>
+          <span class="cta">Open Photo Planner</span>
         </div>
       </a>
     </section>
